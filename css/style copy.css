@@ -1,0 +1,95 @@
+/* Estilo para toda a página - simula o terminal */
+body {
+    background-color: #0d1117; /* Fundo mais escuro, inspirado no GitHub */
+    color: #39ff14; /* Verde neon mais vibrante */
+    font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Source Code Pro', 'Courier New', Courier, monospace; /* Mais opções de fontes monoespaçadas */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita barras de rolagem */
+
+    display: flex;
+    flex-direction: column; /* Conteúdo em coluna */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura total da viewport */
+}
+
+/* Container para o texto principal (hello, world) */
+.terminal-wrapper {
+    /* Dimensões flexíveis para o container */
+    max-width: 90%; /* Limita a largura */
+    padding: 20px 40px;
+    font-size: 2em; /* Tamanho da fonte grande */
+    /* border: none; */
+    /* box-shadow: 0 0 25px rgba(57, 255, 20, 0.8); Brilho mais intenso */
+    transition: box-shadow 0.3s ease; /* Transição para a sombra */
+    margin-bottom: 30px; /* Espaço abaixo do texto principal */
+    overflow: hidden; /* Garante que o texto digitado não transborde */
+}
+
+/* Estilo para o texto "hello, world" dentro do container */
+.terminal-output {
+    font-size: 3.5em; /* Tamanho da fonte grande */
+    text-align: center;
+    text-shadow: 0 0 12px rgba(57, 255, 20, 0.9); /* Sombra de texto mais forte */
+    white-space: nowrap; /* Impede que o texto quebre linhas */
+    overflow: hidden; /* Para o efeito de digitação */
+    /* border-right: 0.15em solid #39ff14; Apenas uma borda à direita (o "cursor" inicial) */
+    /* Remove a animação blink-caret daqui */
+}
+
+.terminal-output::after {
+    content: '_'; /* Adiciona um caractere de underscore */
+    animation: blink-caret 1s infinite; /* Animação de piscar */
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Efeito hover no container principal */
+.terminal-wrapper:hover {
+    
+    cursor: default;
+}
+
+/* Estilos para os links do GitHub */
+.github-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os links */
+    text-align: center;
+    margin-top: 20px; /* Espaço acima dos links */
+}
+
+.github-links a {
+    color: #39ff14; /* Verde neon para os links */
+    text-decoration: none;
+    font-size: 1.2em; /* Tamanho da fonte dos links */
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6); /* Sombra de texto dos links */
+    box-shadow: 0 0 0 rgba(0,0,0,0); /* Sombra da caixa invisível por padrão */
+    transition: color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+    padding: 5px 0; /* Padding para a área de hover */
+}
+
+.github-links a:hover {
+    color: #66ff66; /* Cor mais clara no hover */
+    text-decoration: underline; /* Sublinhado no hover */
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.9); /* Sombra de texto mais intensa no hover */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); /* Sombra de caixa no hover */
+}
+
+.github-links a i.si-github {
+    border-radius: 50%; /* Ícone circular */
+    background-color: transparent; /* Fundo transparente */
+    padding: 0.2em; /* Espaçamento interno do ícone */
+    box-sizing: content-box; /* Ajusta o box-sizing para o ícone */
+    box-shadow: none; /* Remove sombra do ícone */
+    margin-right: 0.5px; /* Espaço entre o ícone e o texto */
+    font-size: 1.5em; /* Tamanho do ícone */
+    line-height: 1; /* Ajuste para alinhamento */
+    color: inherit; /* Herda a cor do link pai */
+    text-shadow: inherit; /* Herda a sombra do link pai */
+    transition: inherit; /* Herda a transição do link pai */
+}
